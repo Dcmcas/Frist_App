@@ -24,15 +24,22 @@ const styles = StyleSheet.create({
     },
 });
 
+/**
+ * La propiedad disabled es boolean (verdadero o falso), es opcional, no es necesario mandarla, por defecto es 
+ * false. Como si la vamos a usar desde el LoginForm mando un estado que va cambiar de true a false.
+ */
+
 interface ButtonProps {
+    disabled?: boolean; 
     onPress: () => void;
     text: string;
 }
 
-export const Button = ({ text, onPress }: ButtonProps) => {
+export const Button = ({ disabled, text, onPress }: ButtonProps) => {
     return (
         <Pressable
             android_ripple={{ color: 'rgba(122, 19, 207, 0.1)' }}
+            disabled={ disabled }
             style={ styles.button }
             onPress={ onPress }
         >

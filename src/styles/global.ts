@@ -10,5 +10,10 @@ export const globalStyles = StyleSheet.create({
     scrollScreen: {
         flexGrow: 1,
         padding: spacing.md
+    },
+
+    formContainer: {
+        flex: 1, 
+        gap: spacing.sm
     }
 });

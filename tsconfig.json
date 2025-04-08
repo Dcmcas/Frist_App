@@ -6,10 +6,20 @@
       "@/*": [
         "./*"
       ],
+      "@context/*": [
+        "./src/context/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@interfaces/*": [
+        "./src/interfaces/*"
+      ],
       "@styles/*": [
         "./src/styles/*"
       ],
     }
+
   },
   "include": [
     "**/*.ts",
