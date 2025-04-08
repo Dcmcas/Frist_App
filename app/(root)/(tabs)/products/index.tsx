@@ -1,12 +1,13 @@
 import { View } from "react-native";
-import { useRouter } from "expo-router";
 
 import { Button, Title } from "@/src/components/ui";
+
+import { useAuth } from "@hooks/auth";
 
 import { globalStyles } from "@styles/global";
 
 const HomeScreen = () => {
-    const router = useRouter();
+    const { signOut } = useAuth();
 
     return (
         <View style={ globalStyles.screen }>
@@ -16,7 +17,7 @@ const HomeScreen = () => {
 
             <Button 
                 text="Cerrar Sesión"
-                onPress={ () => router.replace('../auth/login') }
+                onPress={ signOut }
             />
         </View>
     );

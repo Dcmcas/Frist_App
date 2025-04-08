@@ -2,16 +2,20 @@ import { View } from 'react-native';
 
 import { Title } from '@/src/components/ui';
 
+import { useAuth } from '@hooks/auth';
+
 import { globalStyles } from '@styles/global';
 
-const SettingsScreen = () => {
+const TabsScreen = () => {
+    const { user } = useAuth();
+
     return (
         <View style={ globalStyles.screen }>
             <Title>
-                Settings
+                Bienvenido 
             </Title>
         </View>
     );
 }
 
-export default SettingsScreen;
+export default TabsScreen;

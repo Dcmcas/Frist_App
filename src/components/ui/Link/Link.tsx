@@ -2,6 +2,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 
 import { LinkProps } from './interfaces';
 import { styles } from './styles';
+import React from 'react';
 
 export const Link = ({ actionText, onPress, text }: LinkProps) => {
     return (

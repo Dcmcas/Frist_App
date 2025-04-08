@@ -1,8 +1,13 @@
-import { Stack } from "expo-router";
+import { Redirect, Stack } from "expo-router";
+
+import { useAuth } from "@hooks/auth";
 
 import { colors } from "@styles/theme";
 
 const AuthLayout = () => {
+    const { isAuthenticated } = useAuth();
+    if (isAuthenticated) return (<Redirect href="../(tabs)" />);
+
     return (
         <Stack
             screenOptions={{

@@ -2,8 +2,8 @@ export const colors = {
     black: '#121212',
     white: '#FFFFFF',
     gray: '#808080',
-    red: '#B20000',
-    purple: '#7B2CBF'
+    red: 'purple',
+    purple: 'purple'
 }
 
 export const fontSizes = {

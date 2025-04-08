@@ -44,24 +44,6 @@ export const LoginForm = ({ style }: ContainerProps) => {
                 style={{ marginBottom: spacing.md }}
             />
 
-            {/* 
-                Aquí lo que falta es definir la propiedad disabled en el componente Button para 
-                deshabilitarlo cuando el formulario se esta enviando.
-            */}
-
-            {/* 
-                Voy mostrarte como subir los cambios a github se necesita de tres comandos:
-
-                git add: este es para agregar los cambios, si se usa el . se puede agregar todos los cambios, si queremos hacerlo
-                por grupos o carpetas en vez del . se agrega la ruta de la carpeta o archivo.
-
-                git commit: este es para hacer el commit de los cambios, se le pasa un mensaje de lo que se hizo.
-
-                git push: este es para subir los cambios a github.
-
-                Ahora intenta hacer eso siguiendo esto que te explique.
-            */}
-
             <Button 
                 disabled={ isSubmitting }
                 onPress={ handleSubmit }

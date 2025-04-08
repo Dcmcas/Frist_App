@@ -1,18 +1,9 @@
-import { View } from 'react-native';
+import { Redirect } from 'expo-router';
 
-import { Title } from '@/src/components/ui';
-
-import { globalStyles } from '@styles/global';
-
-const TabsScreen = () => {
+const RootScreen = () => {
     return (
-        <View style={ globalStyles.screen }>
-            <Title>
-                Home
-            </Title>
-        </View>
+        <Redirect href="../(tabs)" />
     );
 }
 
-export default TabsScreen;
-
+export default RootScreen;

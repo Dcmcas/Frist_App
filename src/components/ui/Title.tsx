@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 import { Text, StyleSheet, StyleProp, TextStyle } from "react-native";
 import { colors, fontSizes, spacing } from "@/src/styles/theme";
+import React from "react";
 
 const styles = StyleSheet.create({
     title: {

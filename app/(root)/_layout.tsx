@@ -1,69 +1,21 @@
-import { Tabs } from "expo-router";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { Stack } from 'expo-router';
 
-import { colors, fontSizes } from "@styles/theme";
-
-const TabsLayout = () => {
+const RootLayout = () => {
     return (
-        <Tabs
+        <Stack 
             screenOptions={{
                 headerShadowVisible: false,
-                tabBarStyle: {
-                    borderWidth: 0,
-                    elevation: 0,
-                    height: 64
-                },
-                tabBarActiveTintColor: colors.red,
-                tabBarInactiveTintColor: colors.gray,
-                tabBarLabelStyle: {
-                    fontSize: fontSizes.sm - 2
-                },
+                statusBarStyle: 'dark'
             }}
         >
-            <Tabs.Screen 
+            <Stack.Screen
                 name="index"
                 options={{
-                    title: 'Inicio',
-                    tabBarIcon: ({ color, size }) => (
-                        <Ionicons 
-                            color={ color }
-                            name="home"
-                            size={ size }
-                        />
-                    )
+                    title: 'Inicio'
                 }}
             />
-
-            <Tabs.Screen 
-                name="products"
-                options={{
-                    title: 'Productos',
-                    tabBarIcon: ({ color, size }) => (
-                        <Ionicons 
-                            color={ color }
-                            name="bag-handle"
-                            size={ size }
-                        />
-                    )
-                }}
-            />
-
-            <Tabs.Screen 
-                name="settings"
-                options={{
-                    title: 'Configuración',
-                    tabBarIcon: ({ color, size }) => (
-                        <Ionicons 
-                            color={ color }
-                            name="settings"
-                            size={ size }
-                        />
-                    )
-                }}
-            />
-        </Tabs>
+        </Stack>
     );
 }
 
-export default TabsLayout;
-
+export default RootLayout;

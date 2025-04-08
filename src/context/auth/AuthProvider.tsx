@@ -48,8 +48,8 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
 
         setUser({
             id: 'f52621df-8671-42b7-aae5-8c4fa94c1d8f',
-            name: 'Kristhian',
-            lastname: 'Ferrufino',
+            name: 'Odalys',
+            lastname: 'Blandón',
             email: values.email
         });
 

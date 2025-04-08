@@ -16,6 +16,6 @@ export const styles = StyleSheet.create({
 
     linkAction: {
         fontSize: fontSizes.sm,
-        color: colors.purple
+        color: colors.red
     }
 });
