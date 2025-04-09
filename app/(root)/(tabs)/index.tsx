@@ -12,7 +12,7 @@ const TabsScreen = () => {
     return (
         <View style={ globalStyles.screen }>
             <Title>
-                Bienvenido 
+                Bienvenido { user?.name } { user?.lastname }
             </Title>
         </View>
     );
