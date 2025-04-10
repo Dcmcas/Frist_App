@@ -5,7 +5,8 @@ const RootLayout = () => {
         <Stack 
             screenOptions={{
                 headerShadowVisible: false,
-                statusBarStyle: 'dark'
+                headerShown: false,
+                statusBarStyle: 'auto'
             }}
         >
             <Stack.Screen
