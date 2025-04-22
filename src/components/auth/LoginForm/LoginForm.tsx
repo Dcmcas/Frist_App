@@ -45,6 +45,7 @@ export const LoginForm = ({ style }: ContainerProps) => {
             />
 
             <Button 
+                isLoading={ isSubmitting }
                 disabled={ isSubmitting }
                 onPress={ handleSubmit }
                 text="Iniciar Sesión"

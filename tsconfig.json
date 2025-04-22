@@ -18,6 +18,9 @@
       "@styles/*": [
         "./src/styles/*"
       ],
+      "@data/*": [
+        "./src/data/*"
+      ],
     }
 
   },

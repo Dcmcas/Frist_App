@@ -1,0 +1,83 @@
+[
+    {
+      "id": "a1f1b6d7-10c1-4b61-8a6f-2123b1fc8991",
+      "name": "iPhone 15 Pro",
+      "description": "iPhone 15 Pro con chip A17 Pro, cámara triple de 48MP y pantalla Super Retina XDR de 6.1 pulgadas.",
+      "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch?wid=5120&hei=2880&fmt=jpeg&qlt=80&.v=1692936654546",
+      "price": 999.00,
+      "stock": 20
+    },
+    {
+      "id": "b2f7a93e-39a2-4bb9-87f3-543c1326c51e",
+      "name": "iPhone 15",
+      "description": "iPhone 15 con chip A16 Bionic, cámara dual de 48MP y pantalla Super Retina XDR de 6.1 pulgadas.",
+      "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch?wid=5120&hei=2880&fmt=jpeg&qlt=80&.v=1692923798942",
+      "price": 799.00,
+      "stock": 35
+    },
+    {
+      "id": "c3b9e4d1-1d2c-40c5-92e0-f1e9c8e4765f",
+      "name": "iPhone 14",
+      "description": "iPhone 14 con chip A15 Bionic, cámara dual de 12MP y pantalla Super Retina XDR de 6.1 pulgadas.",
+      "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch?wid=5120&hei=2880&fmt=jpeg&qlt=80&.v=1663703840459",
+      "price": 699.00,
+      "stock": 50
+    },
+    {
+      "id": "d4cfb279-51ce-44d0-8758-88183a43d0ae",
+      "name": "iPhone 13",
+      "description": "iPhone 13 con chip A15 Bionic, sistema de cámara dual de 12MP y pantalla Super Retina XDR de 6.1 pulgadas.",
+      "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-finish-select-202207-6-1inch?wid=5120&hei=2880&fmt=jpeg&qlt=80&.v=1654893618126",
+      "price": 599.00,
+      "stock": 42
+    },
+    {
+      "id": "e5dd2df8-dc78-4f65-82e1-25c1072fc290",
+      "name": "iPhone SE (3ra generación)",
+      "description": "iPhone SE con chip A15 Bionic, cámara individual de 12MP y pantalla Retina HD de 4.7 pulgadas.",
+      "image": "https://th.bing.com/th/id/OIP.SkcBJWBVsZqIQsBPoYEayQHaEK?w=1920&h=1080&rs=1&pid=ImgDetMain",
+      "price": 429.00,
+      "stock": 60
+    },
+    {
+      "id": "f6b7d2d3-9c31-4e77-b104-82ae1f8bb3fb",
+      "name": "Samsung Galaxy S24 Ultra",
+      "description": "Galaxy S24 Ultra con cámara de 200MP, pantalla Dynamic AMOLED 2X de 6.8 pulgadas y procesador Snapdragon 8 Gen 3.",
+      "image": "https://th.bing.com/th/id/OIP.qsQTiDLP55oVxbc9catfZAHaE7?rs=1&pid=ImgDetMain",
+      "price": 1299.00,
+      "stock": 18
+    },
+    {
+      "id": "g9a3d764-fc3c-4a5f-9a76-298e8f032889",
+      "name": "Samsung Galaxy S24+",
+      "description": "Galaxy S24+ con pantalla Dynamic AMOLED 2X de 6.7 pulgadas, cámara triple y batería de 4900mAh.",
+      "image": "https://th.bing.com/th/id/OIP.RpUnGslHZHiS1-uRNldwCwHaE8?rs=1&pid=ImgDetMain",
+      "price": 999.00,
+      "stock": 30
+    },
+    {
+      "id": "h7d8b233-ec79-4a5d-9315-d924f4e87915",
+      "name": "Samsung Galaxy S24",
+      "description": "Galaxy S24 con pantalla Dynamic AMOLED 2X de 6.2 pulgadas, cámara triple y hasta 512GB de almacenamiento.",
+      "image": "https://th.bing.com/th/id/OIP.-G_rNt2izm1JBv4sdakQ_QHaE7?rs=1&pid=ImgDetMain",
+      "price": 859.00,
+      "stock": 40
+    },
+    {
+      "id": "i5f6a9d0-efbb-4327-813e-0f76c8e5e1b1",
+      "name": "Samsung Galaxy Z Fold5",
+      "description": "Galaxy Z Fold5 con pantalla principal de 7.6 pulgadas plegable, multitarea avanzada y S Pen compatible.",
+      "image": "https://th.bing.com/th/id/OIP.PwSmcmNeUjPudUGgejiDtQAAAA?rs=1&pid=ImgDetMain",
+      "price": 1799.00,
+      "stock": 10
+    },
+    {
+      "id": "j3ce7f25-cc69-45e3-9dc5-c02e6235fc86",
+      "name": "Samsung Galaxy Z Flip5",
+      "description": "Galaxy Z Flip5 con diseño plegable compacto, pantalla externa de 3.4 pulgadas y cámara selfie FlexCam.",
+      "image": "https://www.bosshunting.com.au/wp-content/uploads/2023/07/Untitled-5.jpg",
+      "price": 999.00,
+      "stock": 25
+    }
+  ]
+  

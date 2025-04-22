@@ -57,6 +57,24 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
         setIsAuthLoading(false);
     }
 
+    const signUp = async (values: { name: string; email: string; password: string }): Promise<void> => {
+        setIsAuthLoading(true);
+
+        // Simulate a network request
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        console.log('Registrando usuario:', values);
+
+        setUser({
+            id: 'generated-id',
+            name: values.name,
+            lastname: '', // Ajusta si tienes este valor en tu formulario
+            email: values.email
+        });
+
+        setIsAuthenticated(true);
+        setIsAuthLoading(false);
+    }
+
     const signOut = (): void => {
         clearAuthState();
     }
@@ -64,6 +82,7 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
     const value = useMemo(() => ({ 
         ...state,
         signIn,
+        signUp,
         signOut,
     }), [ state ]);
 

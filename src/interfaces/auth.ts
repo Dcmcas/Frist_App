@@ -24,5 +24,6 @@ export type AuthAction =
 
 export interface AuthContextProps extends AuthState {
     signIn: (values: LoginFormValues) => Promise<void>;
+    signUp: (values: { name: string; email: string; password: string }) => Promise<void>; // 👈 AÑADIDO
     signOut: () => void;
 }

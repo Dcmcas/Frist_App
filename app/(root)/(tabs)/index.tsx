@@ -1,21 +1,26 @@
-import { View } from 'react-native';
+import { View } from "react-native";
 
-import { Title } from '@/src/components/ui';
+import { Button, Title } from "@/src/components/ui";
 
-import { useAuth } from '@hooks/auth';
+import { useAuth } from "@hooks/auth";
 
-import { globalStyles } from '@styles/global';
+import { globalStyles } from "@styles/global";
 
-const TabsScreen = () => {
-    const { user } = useAuth();
+const HomeScreen = () => {
+    const { signOut, user } = useAuth();
 
     return (
         <View style={ globalStyles.screen }>
             <Title>
-                Bienvenido { user?.name } { user?.lastname }
+                Bienvenido, { user?.name }{ user?.lastname }
             </Title>
+
+            <Button 
+                text="Cerrar Sesión"
+                onPress={ signOut }
+            />
         </View>
     );
 }
 
-export default TabsScreen;
+export default HomeScreen;

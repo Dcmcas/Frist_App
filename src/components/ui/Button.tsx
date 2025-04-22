@@ -1,16 +1,15 @@
-import { PropsWithChildren } from "react";
-import { Pressable, StyleSheet, Text } from "react-native";
+import { ActivityIndicator,Pressable, StyleSheet, Text, View } from "react-native";
 
-import { colors, fontSizes, spacing } from "@styles/theme";
+import { borderRadius, colors, fontSizes, spacing } from "@styles/theme";
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: colors.purple,
+        backgroundColor: colors.red,
         height: spacing.xl,
         alignItems: 'center',
         justifyContent: 'center',
         paddingHorizontal: spacing.sm,
-        borderRadius: 12, 
+        borderRadius: borderRadius.sm, 
         shadowColor: '#000', 
         shadowOffset: { width: 0, height: 2 }, 
         shadowOpacity: 0.25, 
@@ -22,6 +21,12 @@ const styles = StyleSheet.create({
         color: colors.white,
         fontSize: fontSizes.sm,
     },
+    buttonContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: spacing.xs
+    }
 });
 
 /**
@@ -30,12 +35,13 @@ const styles = StyleSheet.create({
  */
 
 interface ButtonProps {
+    isLoading?: boolean;
     disabled?: boolean; 
     onPress: () => void;
     text: string;
 }
 
-export const Button = ({ disabled, text, onPress }: ButtonProps) => {
+export const Button = ({ isLoading, disabled, text, onPress }: ButtonProps) => {
     return (
         <Pressable
             android_ripple={{ color: 'rgba(122, 19, 207, 0.1)' }}
@@ -43,9 +49,17 @@ export const Button = ({ disabled, text, onPress }: ButtonProps) => {
             style={ styles.button }
             onPress={ onPress }
         >
+           <View style={ styles.buttonContent }>
             <Text style={ styles.buttonText }>
                 { text }
             </Text>
+            { (isLoading) && (
+                <ActivityIndicator
+                    size="small"
+                    color={ colors.white }
+                />
+            ) }
+           </View>
         </Pressable>
     );
 }
