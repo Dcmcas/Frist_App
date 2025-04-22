@@ -1,13 +1,9 @@
 import { View } from 'react-native';
 import { useRouter } from 'expo-router';
-
 import { Button, FormField, Link } from '../../ui';
-
 import { useAuth } from '@hooks/auth';
 import { useForm } from '@hooks/ui';
-
 import { ContainerProps } from '@interfaces/ui';
-
 import { colors, spacing } from '@styles/theme';
 import { globalStyles } from '@styles/global';
 

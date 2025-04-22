@@ -12,11 +12,11 @@ const RegisterScreen = () => {
                 contentContainerStyle={globalStyles.scrollScreen}
                 overScrollMode="never"
             >
-                <Title>
+                <Title style={{ textAlign: 'center', marginTop: 100 }}>
                     Crear Cuenta
                 </Title>
 
-                <RegisterForm style={{ marginTop: '40%' }} />
+                <RegisterForm style={{ marginTop: 40 }} />
             </ScrollView>
         </KeyboardAvoidingView>
     );

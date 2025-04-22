@@ -1,3 +1,4 @@
+import React from "react";
 import { KeyboardAvoidingView, ScrollView } from "react-native";
 
 import { LoginForm } from "@/src/components/auth";
@@ -12,11 +13,11 @@ const LoginScreen = () => {
                 contentContainerStyle={ globalStyles.scrollScreen }
                 overScrollMode="never"
             >
-                <Title>
+                 <Title style={{ textAlign: 'center', marginTop: 100 }}>
                     Iniciar Sesión
                 </Title>
 
-                <LoginForm style={{ marginTop: '40%' }} />
+                <LoginForm style={{ marginTop: 50 }} />
             </ScrollView>
         </KeyboardAvoidingView>
     );

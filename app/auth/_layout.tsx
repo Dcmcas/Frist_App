@@ -1,33 +1,37 @@
-import { Redirect, Stack } from "expo-router";
-
+import { Stack, useRouter } from "expo-router";
+import { useEffect } from "react";
 import { useAuth } from "@hooks/auth";
-
 import { colors } from "@styles/theme";
+import { StatusBar } from "expo-status-bar";
 
 const AuthLayout = () => {
-    const { isAuthenticated } = useAuth();
-    if (isAuthenticated) return (<Redirect href="../(tabs)" />);
+  const { isAuthenticated } = useAuth();
+  const router = useRouter();
 
-    return (
-        <Stack
-            screenOptions={{
-                animation: 'ios_from_right',
-                contentStyle: {
-                    backgroundColor: colors.white,
-                },
-                statusBarStyle: 'dark',
-                headerShown: false
-            }}
-        >
-            <Stack.Screen 
-                name="login"
-            />
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.replace("/(tabs)");
+    }
+  }, [isAuthenticated]);
 
-            <Stack.Screen 
-                name="register"
-            />
-        </Stack>
-    );
-}
+  return (
+    <>
+      <StatusBar style="dark" />
+      <Stack
+        screenOptions={{
+          animation: 'ios_from_right',
+          contentStyle: {
+            backgroundColor: colors.white,
+          },
+          statusBarStyle: 'dark',
+          headerShown: false
+        }}
+      >
+        <Stack.Screen name="login" />
+        <Stack.Screen name="register" />
+      </Stack>
+    </>
+  );
+};
 
 export default AuthLayout;

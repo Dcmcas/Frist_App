@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, RefreshControl, Text, View } from "react-native";
-
 import { Title } from "@/src/components/ui";
 import { ProductCard } from "@/src/components/products";
-
 import productsData from '@data/products.json';
-
 import { globalStyles } from "@styles/global";
 import { colors, fontSizes, sizes, spacing } from "@styles/theme";
 
