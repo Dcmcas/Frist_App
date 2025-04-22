@@ -1,3 +1,4 @@
+import { PropsWithChildren } from "react";
 import { ActivityIndicator,Pressable, StyleSheet, Text, View } from "react-native";
 
 import { borderRadius, colors, fontSizes, spacing } from "@styles/theme";
