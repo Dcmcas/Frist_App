@@ -5,8 +5,7 @@ export interface LoginFormValues {
 
 export interface User {
     id: string;
-    name: string;
-    lastname: string;
+    fullName?: string; // Cambiado a un solo campo
     email: string;
 }
 
@@ -24,6 +23,6 @@ export type AuthAction =
 
 export interface AuthContextProps extends AuthState {
     signIn: (values: LoginFormValues) => Promise<void>;
-    signUp: (values: { name: string; email: string; password: string }) => Promise<void>; // 👈 AÑADIDO
+    signUp: (values: { fullName: string; email: string; password: string }) => Promise<void>; // Cambiado a un solo campo
     signOut: () => void;
 }

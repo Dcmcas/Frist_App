@@ -12,7 +12,7 @@ const HomeScreen = () => {
     return (
         <View style={ globalStyles.screen }>
             <Title>
-                Bienvenido, { user?.name }{ user?.lastname }
+                Bienvenido{user?.fullName ? `, ${user.fullName}` : ''}
             </Title>
 
             <Button 

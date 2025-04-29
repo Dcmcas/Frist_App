@@ -11,7 +11,7 @@ const LoginScreen = () => {
         <KeyboardAvoidingView style={{ flex: 1 }}>
             <ScrollView
                 contentContainerStyle={ globalStyles.scrollScreen }
-                overScrollMode="never"
+                overScrollMode="auto"
             >
                  <Title style={{ textAlign: 'center', marginTop: 100 }}>
                     Iniciar Sesión

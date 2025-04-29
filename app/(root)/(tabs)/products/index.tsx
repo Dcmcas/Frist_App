@@ -39,7 +39,7 @@ const ProductsScreen = () => {
     return (
         <FlatList 
             contentContainerStyle={ globalStyles.scrollScreen }
-            data={ products }
+            data={ products}
             overScrollMode="never"
             ListHeaderComponent={
                 <Title>
@@ -47,7 +47,7 @@ const ProductsScreen = () => {
                 </Title>
             }
             ListEmptyComponent={
-                <View style={{ marginTop: '40%' }}>
+                <View style={{ marginTop: 50 }}>
                     { (!isProductsLoading && products.length === 0) && (
                         <Text style={{ color: colors.gray, fontSize: fontSizes.md - 4, textAlign: 'center' }}>
                             No hay productos

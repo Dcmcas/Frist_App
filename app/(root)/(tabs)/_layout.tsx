@@ -18,10 +18,12 @@ const TabsLayout = () => {
                     elevation: 0,
                     height: 64
                 },
+                
                 tabBarActiveTintColor: colors.red,
                 tabBarInactiveTintColor: colors.gray,
                 tabBarLabelStyle: {
                     fontSize: fontSizes.sm - 2
+                    
                 },
             }}
         >

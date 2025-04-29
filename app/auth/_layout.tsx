@@ -2,7 +2,8 @@ import { Stack, useRouter } from "expo-router";
 import { useEffect } from "react";
 import { useAuth } from "@hooks/auth";
 import { colors } from "@styles/theme";
-import { StatusBar } from "expo-status-bar";
+import { StatusBar } from "expo-status-bar"; // Asegúrate de usar el StatusBar de expo-status-bar
+import { Platform } from "react-native";
 
 const AuthLayout = () => {
   const { isAuthenticated } = useAuth();
@@ -16,14 +17,15 @@ const AuthLayout = () => {
 
   return (
     <>
-      <StatusBar style="dark" />
+      <StatusBar
+        style={Platform.OS === "ios" ? "dark" : "auto"} // Configuración específica para iOS
+      />
       <Stack
         screenOptions={{
           animation: 'ios_from_right',
           contentStyle: {
             backgroundColor: colors.white,
           },
-          statusBarStyle: 'dark',
           headerShown: false
         }}
       >
