@@ -1,6 +1,7 @@
-import { View } from "react-native";
+import { View, Pressable } from "react-native";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
-import { Button, Title } from "@/src/components/ui";
+import { Title } from "@/src/components/ui";
 
 import { useAuth } from "@hooks/auth";
 
@@ -14,11 +15,6 @@ const HomeScreen = () => {
             <Title>
                 Bienvenido{user?.fullName ? `, ${user.fullName}` : ''}
             </Title>
-
-            <Button 
-                text="Cerrar Sesión"
-                onPress={ signOut }
-            />
         </View>
     );
 }

@@ -24,17 +24,21 @@ export const RegisterForm = ({ style }: ContainerProps) => {
     const { signUp } = useAuth();
     const [error, setError] = React.useState<string | null>(null);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         setError(null);
         if (form.password !== form.confirmPassword) {
             setError('Las contraseñas no coinciden');
             return;
         }
-        asyncSubmit(async (values) => {
-            await signUp({ fullName: values.fullName, email: values.email, password: values.password });
-            clearForm();
-            alert('Usuario registrado con éxito');
-            router.replace('/auth/login');
+        await asyncSubmit(async (values) => {
+            // Modificación: signUp devuelve true si fue exitoso, false si hubo error
+            const result = await signUp({ fullName: values.fullName, email: values.email, password: values.password });
+            if (result === true) {
+                clearForm();
+                alert('Usuario registrado con éxito');
+                router.replace('/auth/login');
+            }
+            // Si hubo error, el mensaje ya fue mostrado por signUp
         });
     }
 

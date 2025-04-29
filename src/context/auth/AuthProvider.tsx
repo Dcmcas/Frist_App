@@ -81,20 +81,23 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
         setIsAuthLoading(false);
     }
 
-    const signUp = async (values: { fullName: string; email: string; password: string }): Promise<void> => {
+    const signUp = async (values: { fullName: string; email: string; password: string }): Promise<boolean> => {
         try {
             const userCredential = await createUserWithEmailAndPassword(firebaseAuth, values.email, values.password);
             await updateProfile(userCredential.user, {
                 displayName: values.fullName,
             });
-            // No autenticamos ni seteamos usuario aquí, solo registro
+            // Registro exitoso
+            return true;
         }
         catch (error: any) {
+            // Aquí se valida el error después de intentar el registro
             if (error.code === 'auth/email-already-in-use') {
                 alert('El correo ya está registrado. Usa otro o inicia sesión.');
             } else {
-                alert('Error al registrar usuario');
+                alert('Error al registrar usuario: ' + error.message);
             }
+            return false;
         }
     }
 
