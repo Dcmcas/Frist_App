@@ -12,6 +12,12 @@
       "@context/*": [
         "./src/context/*"
       ],
+      "@converters": [
+        "./src/converters"
+      ],
+      "@data/*": [
+        "./src/data/*"
+      ],
       "@hooks/*": [
         "./src/hooks/*"
       ],
@@ -21,11 +27,7 @@
       "@styles/*": [
         "./src/styles/*"
       ],
-      "@data/*": [
-        "./src/data/*"
-      ],
     }
-
   },
   "include": [
     "**/*.ts",

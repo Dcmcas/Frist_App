@@ -1,88 +1,125 @@
 import { useEffect, useState } from "react";
-import { ActivityIndicator, FlatList, RefreshControl, Text, View } from "react-native";
-import { Title } from "@/src/components/ui";
+import { ActivityIndicator, FlatList, RefreshControl, Text, View, TouchableOpacity } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
+
+import { Button, Title } from "@/src/components/ui";
 import { ProductCard } from "@/src/components/products";
-import productsData from '@data/products.json';
+
+import { useProducts } from "@/src/hooks/products";
+
 import { globalStyles } from "@styles/global";
 import { colors, fontSizes, sizes, spacing } from "@styles/theme";
 
 const ProductsScreen = () => {
-    const [ isProductsLoading, setIsProductsLoading ] = useState(false);
-    const [ products, setProducts ] = useState<typeof productsData>([]);
-    const [ refreshing, setRefreshing ] = useState(false);
+    const [refreshing, setRefreshing] = useState(false);
 
-    const handleLoadProducts = async (): Promise<void> => {
-        setIsProductsLoading(true);
-
-        // Simulate a network request
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        setProducts(productsData);
-        // setProducts([]);
-        setIsProductsLoading(false);
-    }
+    const {
+        hasMoreProducts,
+        isProductsLoading,
+        products,
+        clearProducts,
+        loadProductById,
+        loadProducts,
+        saveProduct,
+        updateProduct,
+        deleteProduct
+    } = useProducts();
 
     const handleRefresh = async (): Promise<void> => {
         setRefreshing(true);
-        await handleLoadProducts();
+        await loadProducts({ refresh: true });
         setRefreshing(false);
     }
 
+    const handleEndReached = async (): Promise<void> => {
+        if (!hasMoreProducts || isProductsLoading || refreshing) return;
+        await loadProducts();
+    }
+
     useEffect(() => {
-        handleLoadProducts();
+        loadProducts();
     }, []);
 
     useEffect(() => {
         if (!refreshing) return;
-        setProducts([]);
-    }, [ refreshing ]);
+        clearProducts();
+    }, [refreshing]);
 
     return (
-        <FlatList 
-            contentContainerStyle={ globalStyles.scrollScreen }
-            data={ products}
+        <FlatList
+            contentContainerStyle={globalStyles.scrollScreen}
+            data={products}
             overScrollMode="never"
             ListHeaderComponent={
-                <Title>
-                    Productos
-                </Title>
+                <View style={{ flex: 1, marginBottom: spacing.md }}>
+                    <Title>
+                        Productos
+                    </Title>
+
+                    <View style={{ alignItems: 'flex-end', marginBottom: spacing.md }}>
+                        <TouchableOpacity
+                            style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: colors.red, borderRadius: 8, paddingVertical: spacing.xs, paddingHorizontal: spacing.sm }}
+                            onPress={saveProduct}
+                            activeOpacity={0.7}
+                        >
+                            <Ionicons name="add" size={18} color="#fff" />
+                            <Text style={{ color: '#fff', marginLeft: spacing.xs }}>
+                                Nuevo
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
             }
             ListEmptyComponent={
-                <View style={{ marginTop: 50 }}>
-                    { (!isProductsLoading && products.length === 0) && (
+                <View style={{ marginTop: '40%' }}>
+                    {(!isProductsLoading && products.length === 0) && (
                         <Text style={{ color: colors.gray, fontSize: fontSizes.md - 4, textAlign: 'center' }}>
                             No hay productos
                         </Text>
-                    ) }
-
-                    { (isProductsLoading) && (
-                        <ActivityIndicator 
-                            color={ colors.red }
-                            size={ sizes.xxl }
-                        />
-                    ) }
+                    )}
                 </View>
             }
             ListFooterComponent={
-                <Text 
-                    style={{
-                        paddingTop: spacing.md, 
-                        color: colors.gray, 
-                        fontSize: fontSizes.md - 4, 
-                        textAlign: 'center'
-                    }}
-                >
-                    No hay más productos
-                </Text>
+                <>
+                    {(isProductsLoading) && (
+                        <ActivityIndicator
+                            color={colors.red}
+                            size={sizes.xxl}
+                            style={{ marginTop: spacing.md }}
+                        />
+                    )}
+
+                    {(!hasMoreProducts && products.length > 0) && (
+                        <Text
+                            style={{
+                                color: colors.gray,
+                                fontSize: fontSizes.md - 4,
+                                paddingTop: spacing.md,
+                                textAlign: 'center'
+                            }}
+                        >
+                            No hay más productos
+                        </Text>
+                    )}
+                </>
             }
             refreshControl={
-                <RefreshControl 
-                    refreshing={ refreshing }
-                    onRefresh={ handleRefresh }
-                    colors={[ colors.red ]}
+                <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={handleRefresh}
+                    colors={[colors.red]}
                 />
             }
-            ItemSeparatorComponent={ () => <View style={{ height: spacing.md }} /> }
-            renderItem={ ({ item }) => <ProductCard product={ item } />}
+            ItemSeparatorComponent={() => <View style={{ height: spacing.md }} />}
+            renderItem={({ item }) => (
+                <ProductCard
+                    product={item}
+                    onViewMore={() => loadProductById(item.id)}
+                    onUpdate={() => updateProduct(item.id)}
+                    onDelete={() => deleteProduct(item.id)}
+                />
+            )}
+            onEndReached={handleEndReached}
         />
     );
 }

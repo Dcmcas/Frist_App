@@ -1,23 +1,24 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { initializeAuth, getReactNativePersistence } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
+import { getReactNativePersistence, initializeAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+import { env } from './env';
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCu4IyPaEK__tJ0aX_IDT0e13ildHCArTQ",
-  authDomain: "task-app-26a75.firebaseapp.com",
-  projectId: "task-app-26a75",
-  storageBucket: "task-app-26a75.firebasestorage.app",
-  messagingSenderId: "231550165744",
-  appId: "1:231550165744:web:fd8cec2b7b8463ac3e9835"
-};
+    apiKey: env.FIREBASE_API_KEY,
+    authDomain: env.FIREBASE_AUTH_DOMAIN,
+    projectId: env.FIREBASE_PROJECT_ID,
+    storageBucket: env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: env.FIREBASE_APP_ID
+}
 
-// Initialize Firebase
-const Firebaseapp = initializeApp(firebaseConfig);
+export const firebaseApp = initializeApp(firebaseConfig);
 
-export const firebaseAuth = initializeAuth(Firebaseapp, {
-  persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+export const firebaseAuth = initializeAuth(firebaseApp, {
+    persistence: getReactNativePersistence(ReactNativeAsyncStorage)
 });
+
+export const firestore = getFirestore();

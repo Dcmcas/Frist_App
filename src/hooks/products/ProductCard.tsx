@@ -1,7 +1,5 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
 
 import { borderRadius, colors, fontSizes, spacing } from "@styles/theme";
 import { Button } from "../ui";
@@ -81,8 +79,6 @@ const styles = StyleSheet.create({
 });
 
 export const ProductCard = ({ product, onDelete, onUpdate, onViewMore }: ProductCardProps) => {
-    const [showDescription, setShowDescription] = useState(false);
-
     return (
         <View style={ styles.card }>
             <Image
@@ -99,30 +95,32 @@ export const ProductCard = ({ product, onDelete, onUpdate, onViewMore }: Product
                     Stock: { product.stock }
                 </Text>
 
-                {showDescription && (
-                    <Text style={ styles.cardDescription }>
-                        { product.description }
-                    </Text>
-                )}
+                <Text style={ styles.cardDescription }>
+                    { product.description }
+                </Text>
 
-                <View style={{ flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.sm }}>
+                {/* Botones debajo de la descripción */}
+                <View style={{ flexDirection: 'row', justifyContent: 'flex-start', gap: spacing.sm, marginBottom: spacing.sm }}>
                     <TouchableOpacity
-                        onPress={() => setShowDescription(!showDescription)}
-                        style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.red, borderRadius: 8, paddingVertical: spacing.xs }}
+                        onPress={onViewMore}
+                        style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.gray, borderRadius: 8, paddingVertical: spacing.xs }}
                     >
-                        <Ionicons name={showDescription ? "chevron-up" : "chevron-down"} size={18} color="#fff" />
+                        <Ionicons name="eye" size={18} color="#fff" style={{ marginRight: 4 }} />
+                        <Text style={{ color: '#fff', fontWeight: 'bold' }}>Ver más</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={onUpdate}
-                        style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.red, borderRadius: 8, paddingVertical: spacing.xs }}
+                        style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.gray, borderRadius: 8, paddingVertical: spacing.xs }}
                     >
-                        <Ionicons name="reload" size={18} color="#fff" />
+                        <Ionicons name="create" size={18} color="#fff" style={{ marginRight: 4 }} />
+                        <Text style={{ color: '#fff', fontWeight: 'bold' }}>Actualizar</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={onDelete}
-                        style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.red, borderRadius: 8, paddingVertical: spacing.xs }}
+                        style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.red, borderRadius: 8, paddingVertical: spacing.xs }}
                     >
-                        <Ionicons name="trash" size={18} color="#fff" />
+                        <Ionicons name="trash" size={18} color="#fff" style={{ marginRight: 4 }} />
+                        <Text style={{ color: '#fff', fontWeight: 'bold' }}>Eliminar</Text>
                     </TouchableOpacity>
                 </View>
 
